@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'foxapp',
 ]
 
 MIDDLEWARE = [
@@ -51,5 +52,21 @@ TEMPLATES = [{
 }]
 
 WSGI_APPLICATION = 'foxsurvey.wsgi.application'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Настройки для медиа-файлов
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Настройки для локализации
+LANGUAGE_CODE = 'ru-ru'
+TIME_ZONE = 'Europe/Moscow'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+# Настройки для статических файлов
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Остальные настройки (статика, локализация и т.д.)

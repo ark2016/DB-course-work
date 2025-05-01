@@ -1,10 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    # Админка Django
+    path('', include('foxapp.urls')),  # маршруты приложения
     path('admin/', admin.site.urls),
-
-    # Маршруты вашего приложения (раскомментируйте и замените 'your_app' при необходимости)
-    # path('', include('your_app.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
